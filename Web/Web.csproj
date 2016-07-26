@@ -125,11 +125,13 @@
     <Content Include="Web.config" />
     <Content Include="Views\Statistics\Create.cshtml" />
     <Content Include="Views\Statistics\Show.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\StatisticsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
