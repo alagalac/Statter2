@@ -23,9 +23,11 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Show(string id)
         {
-            var stats = _context.Statistics.Where(x => x.Name == id).OrderByDescending(x => x.DateCreated).Take(20);
+            var model = new Models.Statistics.Show();
+            model.Name = id;
+            model.Statistics = _context.Statistics.Where(x => x.Name == id).OrderByDescending(x => x.DateCreated).Take(20);
 
-            return View(stats);
+            return View(model);
         }
 
         [HttpPost]

@@ -1,0 +1,9 @@
+﻿TODO:
+- Make website look good
+- Write unit tests for API
+- Add pretty graphics
+- Host somewhere
+- Add analytics like graphs
+- Add ability to add verified values to stats (So the value is associated with a user).
+- Add ability for private stats?
+- Add ability to store non-numeric stats e.g. text? Could be handy for error handlers etc.
