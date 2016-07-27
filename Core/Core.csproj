@@ -49,9 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Statistic.cs" />
     <Compile Include="Persistence\Configuration.cs" />
     <Compile Include="Persistence\Context.cs" />
+    <Compile Include="Persistence\EntityFrameworkRepository.cs" />
+    <Compile Include="Persistence\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

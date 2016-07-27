@@ -10,12 +10,12 @@ namespace Web.Controllers
 {
     public class StatisticsController : Controller
     {
-        private readonly Context _context = new Context();
+        private readonly IRepository _repository = new EntityFrameworkRepository(new Context());
 
         // GET: Statistics
         public ActionResult Index()
         {
-            var stats = _context.Statistics.OrderByDescending(x => x.DateCreated).Take(20);
+            var stats = _repository.GetAll<Statistic>().OrderByDescending(x => x.DateCreated).Take(20);
 
             return View(stats);
         }
@@ -25,7 +25,7 @@ namespace Web.Controllers
         {
             var model = new Models.Statistics.Show();
             model.Name = id;
-            model.Statistics = _context.Statistics.Where(x => x.Name == id).OrderByDescending(x => x.DateCreated).Take(20);
+            model.Statistics = _repository.GetAll<Statistic>().Where(x => x.Name == id).OrderByDescending(x => x.DateCreated).Take(20);
 
             return View(model);
         }
@@ -34,8 +34,8 @@ namespace Web.Controllers
         public ActionResult Create(Statistic stat)
         {
             stat.DateCreated = DateTime.Now;
-            _context.Statistics.Add(stat);
-            _context.SaveChanges();
+
+            _repository.SaveOrUpdate<Statistic>(stat);
 
             return RedirectToAction("Index");
         }

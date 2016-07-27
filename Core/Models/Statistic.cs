@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core.Models
 {
-    public class Statistic
+    public class Statistic : Entity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public decimal StatisticValue { get; set; }
