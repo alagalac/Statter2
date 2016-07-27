@@ -79,9 +79,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\StatisticsControllerSpecification.cs" />
+    <Compile Include="MockRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{f50e1227-1f14-4155-8de4-3f4b1a315e55}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{5D3F2BE3-C6E7-4E56-A41A-47C63A47A519}</Project>
       <Name>Web</Name>
