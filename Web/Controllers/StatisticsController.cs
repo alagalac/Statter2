@@ -10,7 +10,12 @@ namespace Web.Controllers
 {
     public class StatisticsController : Controller
     {
-        private readonly IRepository _repository = new EntityFrameworkRepository(new Context());
+        private readonly IRepository _repository; // = new EntityFrameworkRepository(new Context());
+
+        public StatisticsController(IRepository repo)
+        {
+            _repository = repo;
+        }
 
         // GET: Statistics
         public ActionResult Index()
