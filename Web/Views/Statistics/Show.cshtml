@@ -6,28 +6,29 @@
 
 <h2>@Model.Name</h2>
 
-    <p>
-        @Html.ActionLink("Add New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                Value
-            </th>
-            <th>
-                Date Added
-            </th>
-        </tr>
+<p>
+    @Html.ActionLink("Add New", "New")
+</p>
 
-        @foreach (var item in Model.Statistics)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StatisticValue)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCreated)
-                </td>
-            </tr>
-        }
-    </table>
+<table class="table">
+    <tr>
+        <th>
+            Value
+        </th>
+        <th>
+            Date Added
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Statistics)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatisticValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+        </tr>
+    }
+</table>

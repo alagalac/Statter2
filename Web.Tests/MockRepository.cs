@@ -28,7 +28,8 @@ namespace Web.Tests
         {
             if (Items.ContainsKey(typeof(T)))
             {
-                return Items[typeof(T)].FirstOrDefault(x => x.Id == id) as T;
+                var item = Items[typeof(T)].FirstOrDefault(x => x.Id == id);
+                return (T)item; // I know the items is of type T.
             }
             else
             {
@@ -40,7 +41,15 @@ namespace Web.Tests
         {
             if (Items.ContainsKey(typeof(T)))
             {
-                return Items[typeof(T)] as IQueryable<T>;
+                var items = Items[typeof(T)];
+                var result = new List<T>();
+                foreach (var item in items)
+                {
+                    // I know that all of the items in this list are of type T, so can cast to T.
+                    result.Add((T)item);
+                }
+
+                return result.AsQueryable();
             }
             else
             {

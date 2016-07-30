@@ -148,7 +148,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config" />
-    <Content Include="Views\Statistics\Create.cshtml" />
+    <Content Include="Views\Statistics\New.cshtml" />
     <Content Include="Views\Statistics\Show.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>

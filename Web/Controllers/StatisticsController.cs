@@ -20,7 +20,8 @@ namespace Web.Controllers
         // GET: Statistics
         public ActionResult Index()
         {
-            var stats = _repository.GetAll<Statistic>().OrderByDescending(x => x.DateCreated).Take(20);
+            var stats = _repository.GetAll<Statistic>();
+            stats = stats.OrderByDescending(x => x.DateCreated).Take(20);
 
             return View(stats);
         }
@@ -46,7 +47,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult New()
         {
             var stat = new Statistic();
 
