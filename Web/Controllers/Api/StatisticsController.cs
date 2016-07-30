@@ -11,7 +11,12 @@ namespace Web.Controllers.Api
 {
     public class StatisticsController : ApiController
     {
-        private readonly IRepository _repository = new EntityFrameworkRepository(new Context());
+        private readonly IRepository _repository; // = new EntityFrameworkRepository(new Context());
+
+        public StatisticsController(IRepository repo)
+        {
+            _repository = repo;
+        }
 
         // GET: api/Statistics
         public IEnumerable<Statistic> Get()
