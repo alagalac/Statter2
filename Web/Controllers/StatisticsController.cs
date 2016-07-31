@@ -43,7 +43,7 @@ namespace Web.Controllers
 
             _repository.SaveOrUpdate<Statistic>(stat);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Show", new { id = stat.Name });
         }
 
         [HttpGet]

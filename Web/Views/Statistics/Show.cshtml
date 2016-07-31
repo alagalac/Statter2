@@ -10,6 +10,20 @@
     @Html.ActionLink("Add New", "New")
 </p>
 
+@using (@Html.BeginForm("Create", "Statistics", FormMethod.Post, new { Class = "form-inline" }))
+{
+    <input type="hidden" name="Name" value="@Model.Name">
+    <form class="form-inline">
+        <label for="StatisticsValue">New Value</label>
+        <div class="form-group">
+            <input id="StatisticsValue" type="text" class="form-control" name="StatisticValue">
+        </div>
+        <button type="submit" class="btn btn-default">Add</button>
+    </form>
+}
+
+<br />
+
 <table class="table">
     <tr>
         <th>
