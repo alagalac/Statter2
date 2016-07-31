@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Results;
 using Web.Controllers.Api;
 
 namespace Web.Tests.Controllers.Api
@@ -22,10 +24,11 @@ namespace Web.Tests.Controllers.Api
 
             var controller = new StatisticsController(mockRepository);
 
-            var result = controller.Get();
+            var result = controller.Get() as OkNegotiatedContentResult<IQueryable<Statistic>>;
+            var items = result.Content;
 
-            Assert.AreEqual(stat, result.First());
-            Assert.IsTrue(result.Count() == 1);
+            Assert.AreEqual(stat, items.First());
+            Assert.IsTrue(items.Count() == 1);
         }
 
         [TestMethod]
@@ -41,10 +44,11 @@ namespace Web.Tests.Controllers.Api
 
             var controller = new StatisticsController(mockRepository);
 
-            var result = controller.Get("Test 1");
+            var result = controller.Get("Test 1") as OkNegotiatedContentResult<IQueryable<Statistic>>;
+            var items = result.Content;
 
-            Assert.AreEqual(stat1, result.First());
-            Assert.IsTrue(result.Count() == 1);
+            Assert.AreEqual(stat1, items.First());
+            Assert.IsTrue(items.Count() == 1);
         }
 
         [TestMethod]

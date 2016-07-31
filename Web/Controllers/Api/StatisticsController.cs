@@ -19,25 +19,27 @@ namespace Web.Controllers.Api
         }
 
         // GET: api/Statistics
-        public IEnumerable<Statistic> Get()
+        public IHttpActionResult Get()
         {
             var stats = _repository.GetAll<Statistic>().OrderByDescending(x => x.DateCreated).Take(20);
-            return stats;
+            return Ok(stats);
         }
 
         // GET: api/Statistics/5
-        public IEnumerable<Statistic> Get(string id)
+        public IHttpActionResult Get(string id)
         {
             var stats = _repository.GetAll<Statistic>().Where(x => x.Name == id).OrderByDescending(x => x.DateCreated).Take(20);
-            return stats;
+            return Ok(stats);
         }
 
         // POST: api/Statistics
-        public void Post([FromBody]Statistic stat)
+        public IHttpActionResult Post([FromBody]Statistic stat)
         {
             stat.DateCreated = DateTime.Now;
 
             _repository.SaveOrUpdate<Statistic>(stat);
+
+            return Ok();
         }
     }
 }
